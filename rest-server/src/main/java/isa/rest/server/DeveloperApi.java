@@ -37,10 +37,8 @@ public class DeveloperApi {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public JsonObject createNewDeveloperFromDto(DeveloperShortDTO dto) {
-		long id = developerService.addDeveloper(dto);
-		return JsonHelper.toJson(
-			"id", id
-		);
+		//TODO
+		return null;
 	}
 
 }
