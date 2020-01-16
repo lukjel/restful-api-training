@@ -16,13 +16,7 @@ public class Echo {
 
 	Logger log = LoggerFactory.getLogger(getClass());
 
-	@GET
-	@Produces(MediaType.TEXT_PLAIN)
 	public String baseCall() {
-		return "ECHO... echo...";
-	}
-
-	public JsonObject paramsFromBody(JsonObject body) {
 		//TODO
 		return null;
 	}
