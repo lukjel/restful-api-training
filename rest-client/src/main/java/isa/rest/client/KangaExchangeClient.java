@@ -140,39 +140,8 @@ public class KangaExchangeClient {
 		}
 	}
 
-	public MarketRatesListResponse ratesModel() {
-		Client client = ClientBuilder.newClient();
-		WebTarget webTarget = client
-			.target(BASE_URL)
-			.path("market")
-			.path("rates")
-			.path("list");
-
-		try (Response response = webTarget.request().post(Entity.json("{}"))) {
-			if (Response.Status.OK.equals(response.getStatusInfo())) {
-				return response.readEntity(MarketRatesListResponse.class);
-			}
-			int status = response.getStatus();
-			throw new IllegalStateException("Error: " + status);
-		}
+	public Object ratesModel() {
+		//TODO
+		return null;
 	}
-
-	public List<MarketTicker> marketTickers() {
-		Client client = ClientBuilder.newClient();
-		WebTarget webTarget = client
-			.target(BASE_URL)
-			.path("market")
-			.path("ticker");
-
-		try (Response response = webTarget.request().get()) {
-			if (Response.Status.OK.equals(response.getStatusInfo())) {
-				MarketTickerResponse rates = response.readEntity(MarketTickerResponse.class);
-				return rates.getMarkets();
-			}
-			int status = response.getStatus();
-			throw new IllegalStateException("Error: " + status);
-		}
-	}
-
-
 }
