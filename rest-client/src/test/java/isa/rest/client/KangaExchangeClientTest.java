@@ -36,12 +36,4 @@ public class KangaExchangeClientTest {
 		log.debug("Response: {}", response);
 		assertTrue("No ping", response.contains("payingCurrency"));
 	}
-
-	@Test
-	public void testMarketDetailsStringWithModel() {
-		KangaExchangeClient client = new KangaExchangeClient();
-		String response = client.marketDetailsStringWithModel("ETH-BTC");
-		log.debug("Response: {}", response);
-		assertTrue("No ping", response.contains("payingCurrency"));
-	}
 }

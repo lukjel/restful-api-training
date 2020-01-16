@@ -62,27 +62,6 @@ public class KangaExchangeClient {
 	}
 
 	public String marketDetailsStringWithJson(String marketId) {
-		Client client = ClientBuilder.newClient();
-		WebTarget webTarget = client
-			.target(BASE_URL)
-			.path("market")
-			.path("get");
-
-		JsonObject param = JsonHelper.toJson("id", marketId);
-
-		try (Response response = webTarget.request().post(Entity.json(param))) {
-			if (Response.Status.OK.equals(response.getStatusInfo())) {
-				String market = response.readEntity(String.class);
-				log.debug("Market: {}", market);
-				return market;
-			}
-			log.debug("Response: {} :: {}", response.getStatus(), response.getEntity());
-			int status = response.getStatus();
-			throw new IllegalStateException("Error: " + status);
-		}
-	}
-
-	public String marketDetailsStringWithModel(String marketId) {
 		//TODO
 		return null;
 	}
