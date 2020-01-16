@@ -43,13 +43,8 @@ public class Echo {
 		);
 	}
 
-	@Path("/3")
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	public JsonObject someUriInfo(@Context UriInfo uriInfo) {
-		return JsonHelper.toJson(
-			"absolutePath", uriInfo.getAbsolutePath().toASCIIString(),
-			"path", uriInfo.getPath()
-		);
+	public JsonObject someUriInfo() {
+		//TODO
+		return null;
 	}
 }
