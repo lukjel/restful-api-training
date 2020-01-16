@@ -16,13 +16,13 @@ docker exec -it mysql mysql -h mysql -uroot -p
 
 #### Uruchomienie dockera z wildfly
 
-**W katalogu** `wildfly.docker` uruchomić najpierw:
+Zbudowanie image dla wildFly:
 ```shell script
-./build.sh
+docker build --tag=isa-wildfly .
 ```
 
 Później uruchamiać docker'a:
 ```shell script
-./run.sh
+docker run -it --rm -p 8080:8080 -p 9990:9990 --network isa-hibernate --name isa-wildfly isa-wildfly
 ```
 

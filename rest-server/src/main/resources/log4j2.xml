@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" monitorInterval="30">
+    <properties>
+        <property name="filters">io.vertx,io.netty,java.lang</property>
+        <property name="pattern">%d{HH:mm:ss.SSS} %p [%t] %c{1} %m{nolookups}%n%rEx{filters(${filters})}</property>
+    </properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout>
+                <pattern>${pattern}</pattern>
+            </PatternLayout>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="warn">
+            <AppenderRef ref="Console"/>
+        </Root>
+        <Logger name="isa" level="debug"/>
+    </Loggers>
+</Configuration>

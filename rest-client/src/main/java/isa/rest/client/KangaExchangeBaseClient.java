@@ -1,18 +1,14 @@
 package isa.rest.client;
 
-import isa.rest.client.model.*;
-import isa.rest.client.util.JsonHelper;
+import isa.rest.client.model.PingResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.json.JsonObject;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Form;
 import javax.ws.rs.core.Response;
-import java.util.List;
 
 
 public class KangaExchangeBaseClient {
@@ -41,8 +37,8 @@ public class KangaExchangeBaseClient {
 
 		try (Response response = webTarget.request().get()) {
 			if (Response.Status.OK.equals(response.getStatusInfo())) {
-				String str = response.readEntity(String.class);
-				return JsonHelper.convert(str);
+				JsonObject json = response.readEntity(JsonObject.class);
+				return json;
 			}
 			int status = response.getStatus();
 			throw new IllegalStateException("Error: " + status);
