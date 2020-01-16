@@ -19,13 +19,4 @@ public class KangaExchangeBaseClientTest {
 		log.debug("Response: {}", response);
 		assertNotNull("No response!", response);
 	}
-
-	@Test
-	public void pingJson() {
-		KangaExchangeBaseClient client = new KangaExchangeBaseClient();
-		JsonObject response = client.pingJson();
-		log.debug("Response: {}", response);
-		assertNotNull("No response!", response);
-	}
-
 }
