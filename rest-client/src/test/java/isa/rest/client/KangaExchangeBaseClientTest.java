@@ -1,6 +1,5 @@
 package isa.rest.client;
 
-import isa.rest.client.model.PingResponse;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,11 +28,4 @@ public class KangaExchangeBaseClientTest {
 		assertNotNull("No response!", response);
 	}
 
-	@Test
-	public void pingModel() {
-		KangaExchangeBaseClient client = new KangaExchangeBaseClient();
-		PingResponse response = client.pingModel();
-		log.debug("Response: {}", response);
-		assertNotNull("No response!", response);
-	}
 }
