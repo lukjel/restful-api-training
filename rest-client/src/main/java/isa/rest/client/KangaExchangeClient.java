@@ -123,24 +123,6 @@ public class KangaExchangeClient {
 	}
 
 	public JsonObject ratesJson() {
-		Client client = ClientBuilder.newClient();
-		WebTarget webTarget = client
-			.target(BASE_URL)
-			.path("market")
-			.path("rates")
-			.path("list");
-
-		try (Response response = webTarget.request().post(Entity.json("{}"))) {
-			if (Response.Status.OK.equals(response.getStatusInfo())) {
-				String rates = response.readEntity(String.class);
-				return JsonHelper.convert(rates);
-			}
-			int status = response.getStatus();
-			throw new IllegalStateException("Error: " + status);
-		}
-	}
-
-	public Object ratesModel() {
 		//TODO
 		return null;
 	}

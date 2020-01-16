@@ -1,6 +1,5 @@
 package isa.rest.client;
 
-import isa.rest.client.model.MarketRatesListResponse;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -64,12 +63,4 @@ public class KangaExchangeClientTest {
 		assertTrue("To small list", result.getJsonArray("list").size() > 20);
 	}
 
-	@Test
-	public void testRatesModel() {
-		KangaExchangeClient client = new KangaExchangeClient();
-		MarketRatesListResponse result = client.ratesModel();
-		log.debug("Result: {}", result);
-		assertNotNull("No list", result.getList());
-		assertTrue("To small list", result.getList().size() > 20);
-	}
 }
