@@ -41,27 +41,6 @@ public class KangaExchangeClient {
 	}
 
 	public String marketDetailsStringWithString(String marketId) {
-		Client client = ClientBuilder.newClient();
-		WebTarget webTarget = client
-			.target(BASE_URL)
-			.path("market")
-			.path("get");
-
-		String param = "{\"id\":\"ETH-BTC\"}";
-
-		try (Response response = webTarget.request().post(Entity.json(param))) {
-			if (Response.Status.OK.equals(response.getStatusInfo())) {
-				String market = response.readEntity(String.class);
-				log.debug("Market: {}", market);
-				return market;
-			}
-			log.debug("Response: {} :: {}", response.getStatus(), response.getEntity());
-			int status = response.getStatus();
-			throw new IllegalStateException("Error: " + status);
-		}
-	}
-
-	public String marketDetailsStringWithJson(String marketId) {
 		//TODO
 		return null;
 	}
