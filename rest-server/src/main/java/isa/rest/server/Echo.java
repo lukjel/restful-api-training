@@ -22,18 +22,7 @@ public class Echo {
 		return "ECHO... echo...";
 	}
 
-	@Path("/1")
-	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
 	public JsonObject paramsFromBody(JsonObject body) {
-		log.debug("Odczytane body: {}", body);
-		return JsonHelper.toJson(
-			"input", body
-		);
-	}
-
-	public JsonObject paramFromHead(@HeaderParam("isa") String isa) {
 		//TODO
 		return null;
 	}
