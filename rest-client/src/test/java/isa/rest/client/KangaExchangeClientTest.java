@@ -44,15 +44,4 @@ public class KangaExchangeClientTest {
 		log.debug("Response: {}", response);
 		assertTrue("No ping", response.contains("payingCurrency"));
 	}
-
-
-	@Test
-	public void testRatesString() {
-		KangaExchangeClient client = new KangaExchangeClient();
-		String result = client.ratesString();
-		log.debug("Result: {}", result);
-		assertTrue("No rates", result.contains("fromCurrency"));
-		assertTrue("No rates", result.contains("rate"));
-	}
-
 }
