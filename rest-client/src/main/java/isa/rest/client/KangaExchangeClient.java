@@ -105,24 +105,6 @@ public class KangaExchangeClient {
 	}
 
 	public String ratesString() {
-		Client client = ClientBuilder.newClient();
-		WebTarget webTarget = client
-			.target(BASE_URL)
-			.path("market")
-			.path("rates")
-			.path("list");
-
-		try (Response response = webTarget.request().post(Entity.json("{}"))) {
-			if (Response.Status.OK.equals(response.getStatusInfo())) {
-				String rates = response.readEntity(String.class);
-				return rates;
-			}
-			int status = response.getStatus();
-			throw new IllegalStateException("Error: " + status);
-		}
-	}
-
-	public JsonObject ratesJson() {
 		//TODO
 		return null;
 	}

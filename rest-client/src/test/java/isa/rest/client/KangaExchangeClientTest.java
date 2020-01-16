@@ -55,12 +55,4 @@ public class KangaExchangeClientTest {
 		assertTrue("No rates", result.contains("rate"));
 	}
 
-	@Test
-	public void testRatesJson() {
-		KangaExchangeClient client = new KangaExchangeClient();
-		JsonObject result = client.ratesJson();
-		assertNotNull("No list", result.getJsonArray("list"));
-		assertTrue("To small list", result.getJsonArray("list").size() > 20);
-	}
-
 }
