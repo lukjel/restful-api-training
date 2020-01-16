@@ -33,18 +33,9 @@ public class Echo {
 		);
 	}
 
-	@Path("/2")
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
 	public JsonObject paramFromHead(@HeaderParam("isa") String isa) {
-		return JsonHelper.toJson(
-			"isa", isa,
-			"timestamp", Instant.now().toString()
-		);
-	}
-
-	public JsonObject someUriInfo() {
 		//TODO
 		return null;
 	}
+
 }
