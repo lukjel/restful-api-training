@@ -23,22 +23,7 @@ public class DeveloperApi {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public JsonObject createNewDeveloperFromJson(JsonObject json) {
-		String firstName = json.getString("firstName");
-		String lastName = json.getString("lastName");
-		String city = json.getString("city");
-		long id = developerService.addDeveloper(firstName, lastName, city);
-		return JsonHelper.toJson(
-			"id", id
-		);
-	}
-
-	@POST
-	@Path("new/dto")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public JsonObject createNewDeveloperFromDto(DeveloperShortDTO dto) {
 		//TODO
 		return null;
 	}
-
 }
