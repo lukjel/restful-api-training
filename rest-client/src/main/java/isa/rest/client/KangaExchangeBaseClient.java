@@ -46,17 +46,6 @@ public class KangaExchangeBaseClient {
 	}
 
 	public PingResponse pingModel() {
-		String address = "https://kanga.exchange/api/ping";
-		Client client = ClientBuilder.newClient();
-		WebTarget webTarget = client.target(address);
-
-		try (Response response = webTarget.request().get()) {
-			if (Response.Status.OK.equals(response.getStatusInfo())) {
-				PingResponse model = response.readEntity(PingResponse.class);
-				return model;
-			}
-			int status = response.getStatus();
-			throw new IllegalStateException("Error: " + status);
-		}
+		return null;
 	}
 }
