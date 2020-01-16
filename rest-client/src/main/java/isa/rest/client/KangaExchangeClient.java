@@ -19,28 +19,9 @@ public class KangaExchangeClient {
 
 	Logger log = LoggerFactory.getLogger(getClass());
 
-	static final String BASE_URL="https://kanga.exchange/api";
+	static final String BASE_URL="";
 
 	public String pingWithTargets() {
-		Client client = ClientBuilder.newClient();
-		WebTarget webTarget = client
-			.target(BASE_URL)
-			.path("ping")
-			;
-
-		try (Response response = webTarget.request().get()) {
-			if (Response.Status.OK.equals(response.getStatusInfo())) {
-				String market = response.readEntity(String.class);
-				log.debug("Ping: {}", market);
-				return market;
-			}
-			log.debug("Response: {} :: {}", response.getStatus(), response.getEntity());
-			int status = response.getStatus();
-			throw new IllegalStateException("Error: " + status);
-		}
-	}
-
-	public String marketDetailsStringWithString(String marketId) {
 		//TODO
 		return null;
 	}
