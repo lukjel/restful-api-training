@@ -1,6 +1,6 @@
 package isa.rest.server;
 
-import isa.hibernate.util.JsonHelper;
+import isa.util.JsonHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

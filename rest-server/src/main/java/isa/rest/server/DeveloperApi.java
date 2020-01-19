@@ -1,8 +1,8 @@
 package isa.rest.server;
 
-import isa.hibernate.dto.DeveloperShortDTO;
-import isa.hibernate.service.DeveloperService;
-import isa.hibernate.util.JsonHelper;
+import isa.dto.DeveloperShortDTO;
+import isa.service.DeveloperService;
+import isa.util.JsonHelper;
 
 import javax.inject.Inject;
 import javax.json.JsonObject;
