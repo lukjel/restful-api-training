@@ -86,6 +86,7 @@ public class UserService {
 			UserDTO dto = mapper.toDTO(account);
 			return dto;
 		} catch (JWTVerificationException e) {
+			log.debug("JWT is not proper one! {}", e.getMessage());
 			throw new AuthorizationException();
 		}
 	}
