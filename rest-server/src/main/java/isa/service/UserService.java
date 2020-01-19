@@ -18,6 +18,7 @@ import org.slf4j.LoggerFactory;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.time.Instant;
+import java.util.Date;
 
 @Stateless
 public class UserService {
@@ -50,9 +51,8 @@ public class UserService {
 
 	private String createNewJWT(User account) {
 		String token = JWT.create()
-			.withClaim("role", account.getRole())
 			.withClaim("userToken", account.getToken())
-			.withClaim("nonce", Instant.now().toEpochMilli())
+			.withExpiresAt(Date.from(Instant.now().plusSeconds(15 * 60)))
 			.withIssuer("infoShareAcademy")
 			.sign(algo);
 		return token;
@@ -91,4 +91,13 @@ public class UserService {
 	}
 
 
+	public String updateJwt(String token) {
+		DecodedJWT jwt = JWT.decode(token);
+		String newToken = JWT.create()
+			.withClaim("userToken", jwt.getClaim("userToken").asString())
+			.withExpiresAt(Date.from(Instant.now().plusSeconds(15 * 60)))
+			.withIssuer("infoShareAcademy")
+			.sign(algo);
+		return newToken;
+	}
 }
