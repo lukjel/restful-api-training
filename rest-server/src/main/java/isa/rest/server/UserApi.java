@@ -28,15 +28,8 @@ public class UserApi {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public JsonObject login(@Context HttpServletResponse response, JsonObject input) {
-		String login = input.getString("login");
-		String password = input.getString("password");
-		try {
-			String token = loginService.login(login, password);
-			response.addHeader("auth-token", token);
-			return Response.ok();
-		} catch (Exception e) {
-			return Response.fail("Wrong login or password");
-		}
+		//FIXME
+		return null;
 	}
 
 	@Path("register")
@@ -44,16 +37,8 @@ public class UserApi {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public JsonObject register(@Context HttpServletResponse response, JsonObject input) {
-		log.debug("Register a new user {}", input);
-		String login = input.getString("login");
-		String password = input.getString("password");
-		try {
-			String token = loginService.createUser(login, password);
-			response.addHeader("auth-token", token);
-			return Response.ok();
-		} catch (Exception e) {
-			return Response.fail("Some problem. Maybe duplicated login?");
-		}
+		//FIXME
+		return null;
 	}
 
 }

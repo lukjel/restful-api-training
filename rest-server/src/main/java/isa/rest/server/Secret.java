@@ -32,18 +32,8 @@ public class Secret {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public JsonObject action(@Context HttpHeaders headers, @Context HttpServletResponse response,  JsonObject input) {
-		String token = headers.getHeaderString("auth-token");
-		try {
-			UserDTO user = loginService.verifyJwt(token);
-			log.debug("User is logged in: {}", user);
-			// Do some actions ...
-			// Create new JWT
-			String newToken = loginService.updateJwt(token);
-			response.addHeader("auth-token", newToken);
-			return Response.ok();
-		} catch (AuthorizationException e) {
-			return Response.fail("Authorization required");
-		}
+		//FIXME
+		return null;
 	}
 
 }
