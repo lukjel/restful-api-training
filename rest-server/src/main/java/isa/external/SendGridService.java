@@ -23,37 +23,12 @@ import static isa.hibernate.util.JsonHelper.toJson;
 public class SendGridService {
 
 	private static final String BASE_URL = "https://api.sendgrid.com/v3";
-	private static final String API_KEY = "";
+	private static final String API_KEY = "SG.ZRKeHR5fT8WOt2WqTtnOvw.pZ1UqBvi0OizXOCaRMwIdWuXiGWkZoM";
 
 	Logger log = LoggerFactory.getLogger(getClass());
 
-	Client client = ClientBuilder.newClient();
-	WebTarget sendGridTarget = client.target(BASE_URL);
-
 	public void sendMail(String fromEmail, String toEmail, String subject, String body) {
-		Invocation.Builder request = sendGridTarget
-			.path("mail")
-			.path("send").request();
-		JsonObject json = toJson(
-			"personalizations", toArray(toJson("to", toArray(toJson("email", toEmail)))),
-			"from", toJson("email", fromEmail),
-			"subject", subject,
-			"content", toArray(toJson(
-				"type", "text/plain",
-				"value", body
-			)));
-		log.debug("JSON:{}", json.toString());
-		try (Response response = request
-			.header("Authorization", "Bearer " + API_KEY)
-			.post(Entity.json(json))) {
-			if (Response.Status.ACCEPTED.equals(response.getStatusInfo())) {
-				log.debug("Mail sent.");
-				return;
-			}
-			log.debug("Response: {} :: {}", response.getStatus(), response.readEntity(String.class));
-			int status = response.getStatus();
-			throw new IllegalStateException("Error: " + status);
-		}
+		// TODO
 	}
 
 }

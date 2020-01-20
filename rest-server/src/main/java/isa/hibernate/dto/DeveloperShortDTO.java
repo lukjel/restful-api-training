@@ -2,9 +2,12 @@ package isa.hibernate.dto;
 
 import isa.hibernate.domain.Developer;
 
+import javax.json.bind.annotation.JsonbProperty;
+
 public class DeveloperShortDTO {
 
 	private Long id;
+
 	private String firstName;
 	private String lastName;
 	private String city;
