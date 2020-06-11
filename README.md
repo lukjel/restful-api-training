@@ -1,5 +1,4 @@
-# jjdd8-materialy-rest
-
+# restfull-app training
 
 ## Dokumentacja API - narzędzia
 
@@ -24,9 +23,13 @@ Po uruchomieniu konsola dostępna pod adresem: http://localhost:8282
 
 ### Ważne polecenia
 
+#### Utwórz sieć w docker
+
+```shell script
+docker network create isa-hibernate
+```
+
 #### Uruchamianie bazy danych
-
-
 
 ```shell script
 docker run --network isa-hibernate --name mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=isahibernate -d mysql
@@ -50,3 +53,12 @@ Później uruchamiać docker'a:
 docker run -it --rm -p 8080:8080 -p 9990:9990 --network isa-hibernate --name isa-wildfly isa-wildfly
 ```
 
+#### Budowanie aplikacji:
+
+Czyści katalog `target`
+Usuwa (`undeploy`) aplikację z wildfly jeżeli taka jest
+Deploy aplikację na server.
+
+```shell script
+mvn clean wildfly:undeploy wildfly:deploy
+```
