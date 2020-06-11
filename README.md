@@ -24,6 +24,12 @@ Po uruchomieniu konsola dostępna pod adresem: http://localhost:8282
 
 ### Ważne polecenia
 
+#### Utwórz sieć w docker
+
+```shell script
+docker network create isa-hibernate
+```
+
 #### Uruchamianie bazy danych
 
 ```shell script
